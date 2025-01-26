@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <link rel="stylesheet" href="selection_page.css" />
+</head>
+<body>
+ 
+  <!--바탕 화면 선 추가-->
+  <div class="vertical-line left"></div>
+  <div class="vertical-line middle1"></div>
+  <div class="vertical-line right"></div>
+  <div class="horizontal-line top"></div>
+  <div class="horizontal-line middle2"></div>
+  <div class="horizontal-line bottom"></div>
+
+  <!--헤더 TO:C 텍스트-->
+  <div class="header-text">TO:C</div>
+
+  <!--상단 레벨박스 텍스트-->
+  <div class = "level-box">
+   <div class = "level-text">Level</div>
+  </div>
+
+  <!--중앙 카드(설명서, 난이도 카드)-->
+  <div class="button_container">
+
+    <!-- How to Use 카드 -->
+    <div class="card how-to-use" id="howToUseCard">
+      <p><em>How to</em><br><em>Use</em></p>
+    </div>
+    <!-- Basic 카드 -->
+    <div class="card" id="basicCard">
+     <h2>Basic</h2>
+     <img src="https://c.animaapp.com/FfxiI2ht/img/star-3.svg" alt="Basic Star" class="star-image">
+     <p><em>TOC</em>은 이런 브랜드 입니다</p>
+    </div>
+    <!-- Intermediate 카드 -->
+    <div class="card" id="intermediateCard">
+      <h2>Intermediate</h2>
+      <img src="https://c.animaapp.com/FfxiI2ht/img/star-15.svg" alt="Intermediate Star" class="star-image">
+      <p><em>TOC</em>은 이런 브랜드 입니다</p>
+    </div>
+    <!-- Advanced 카드 -->
+    <div class="card" id="advancedCard">
+      <h2>Advanced</h2>
+      <img src="https://c.animaapp.com/FfxiI2ht/img/star-16.svg" alt="Advanced Star" class="star-image">
+      <p><em>TOC</em>은 이런 브랜드 입니다</p>
+    </div>
+
+  </div>
+
+  <!--모달창 설명글-->
+  <div class="explanation-modal" id="explanationModal">
+   <div class="explanation-content">
+       <h2>How to Use</h2>
+       <p>1. 원하는 수준을 선택하세요.</p>
+       <p>2. 각 수준에 대한 세부 정보를 확인하세요.</p>
+       <p>3. TOC 시스템을 통해 목표를 달성하세요.</p>
+       <button id="closeModal">닫기</button>
+   </div>
+  </div>
+  
+  <!--푸터 텍스트-->
+  <div class="footer-text">Click, Check, Change</div> 
+
+  <!--js 추가-->
+  <script src="selection_page.js"></script>
+</body>
+</html>

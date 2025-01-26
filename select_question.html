@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <link rel="stylesheet" href="select_question.css" />
+</head>
+<body>
+  <!--바탕 화면 선 추가-->
+  <div class="vertical-line left"></div>
+  <div class="vertical-line right"></div>
+  <div class="horizontal-line top"></div>
+  <div class="horizontal-line middle2"></div>
+  <div class="horizontal-line bottom"></div>
+
+  <!--상단 레벨박스 텍스트-->
+  <div class="level-box">
+   <div class="level-text">Practice</div>
+  </div>
+
+  <div class="box-container">
+   <!-- 왼쪽 Passage Box -->
+   <div class="passage-box">
+     <div id="passage-content" class="scrollable-content"></div>
+   </div>
+
+   <!-- 오른쪽 Question Box -->
+   <div class="question-box">
+    <div class="question-container">
+     <h2 id="question-title"></h2>
+     <p id="question-text"></p>
+     <div id="question-content"></div>
+    </div>
+   </div>
+ </div>
+
+ <div class="nav-buttons">
+  <button id="prev-btn" class="nav-btn" onclick="prevQuestion()">&#10094;</button>
+  <button id="next-btn" class="nav-btn" onclick="nextQuestion()">&#10095;</button>
+  <button id="grade-btn" class="nav-btn" disabled onclick="gradeTest()">Grade</button>
+</div>
+
+  <!--푸터 텍스트-->
+  <div class="footer-text">Click, Check, Change</div> 
+
+  <script src="select_question.js"></script>
+</body>
+</html>
