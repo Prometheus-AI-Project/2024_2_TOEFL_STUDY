@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'All Round Gothic Semi';
+    src: url('../fonts/Fontspring-DEMO-allroundgothic-semi.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'All Round Gothic Lig';
+    src: url('../fonts/Fontspring-DEMO-allroundgothic-ligoblique.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+   background-color: #FCFFF5;
+   margin: 0;
+   padding: 0;
+   font-family: 'Pretendard', sans-serif;
+  }
+  /*가로/세로선 스타일===========================================================================================*/
+  /* 세로선 스타일 */
+  .vertical-line {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   width: 1.2px;
+   background-color: #000;
+  }
+  .middle1{
+   right: 150px;
+  }
+  .left {
+   left: 70px;
+  }
+  .right {
+   right: 60px;
+  }
+  /* 가로선 스타일 */
+  .horizontal-line {
+   position: fixed;
+   height: 1.2px;
+   background-color: #000;
+   left: 0;
+   right: 0;
+  }
+  .top {
+   top: 100px;
+  }
+  .bottom {
+   bottom: 100px;
+  }
+  .middle2 {
+   top: 180px;
+  }
+  
+  /* 원 스타일 ===================================================================*/
+  .circle-left, .circle-right {
+    position: fixed;
+    background-color: #D9FD81;  /* 원 색상 */
+    border: 1px solid #000;     /* 검정 테두리 */
+    border-radius: 50%;         /* 완전한 원 만들기 */
+    z-index: 2;  
+  }
+  .circle-left {
+    width: 30px;
+    height: 30px;
+    bottom: calc(100px - 15px);
+    right: calc(60px - 15px);
+  }
+  .circle-right {
+    width: 50px; 
+    height: 50px;
+    bottom: calc(100px - 25px);
+    right: calc(150px - 25px);
+  }
+  
+  /* TO:C 상단 문구 스타일 ===========================================================================================*/
+  .header-text { 
+   position: fixed;
+   font-size: 120px;
+   right: 82px;
+   top: 70px;
+   text-align: center;
+   -webkit-text-stroke-width: 1px; /* 글씨 테두리 두께 */
+   -webkit-text-stroke-color: rgba(0, 0, 0, 0.60); /* 글씨 테두리 색상 */
+   font-family: 'All Round Gothic Semi', sans-serif;
+   font-style: normal;
+   font-weight: 650;
+   line-height: normal;
+   color: transparent; /* 내부 색상을 투명하게 설정 */
+   white-space: nowrap; /* 텍스트가 줄바꿈되지 않도록 설정 */
+   letter-spacing: -17px;
+  }
+  .letter-t, .letter-o, .letter-colon, .letter-c {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  .letter-t {
+    font-size: 121px;
+    position: relative;
+    top: -1px;
+  }
+  .letter-o {
+    font-size: 116px;
+    position: relative;
+    top: -3px;
+  }
+  .letter-colon {
+    font-size: 100px;
+    position: relative;
+    top: -13px;
+  }
+  .letter-c {
+    font-size: 116px;
+    font-family: 'All Round Gothic Lig', sans-serif;
+    font-weight: 400;
+    position: relative;
+    top: -2px;
+    padding-left: 10px;
+  }
+  
+  /*강조 영역===========================================================================================*/
+  .highlighted-area {
+    position: fixed; 
+    top: 100px;       
+    left: 0;              
+    width: 70px;             
+    height: calc(180px - 100px); 
+    background-color: #E8E8E8;  
+    z-index: -1;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+  }
+  .centered-image {
+    width: 60px;  
+    height: auto;   
+  }
+  
+  /*레벨텍스트===========================================================================================*/
+  .level-text {
+   position: absolute;
+   top: 100px; /* 상자 바깥쪽에 살짝 배치 */
+   left: 50%;
+   transform: translateX(-50%);
+   background: #D9FD81;
+   padding: 5px 20px;
+   font-size: 40px;
+   border: 1px solid #1C1C1A;
+   width: 200px;
+   height: 69px;
+   display: flex;
+   align-items: center;  /* 수직 중앙 정렬 */
+   justify-content: center; /* 수평 중앙 정렬 */
+   text-align: center;
+   font-style: italic;
+  }
+  
+  /*하단 click, check, change 문구 설정===========================================================================================*/
+.footer-text {
+    position: fixed;
+    font-size: 141px;
+    left: -44px;
+    bottom: -39px;
+    text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.60);
+    font-family: 'All Round Gothic Semi', sans-serif;  /* 폰트 적용 */
+    font-style: normal;
+    font-weight: 650;
+    line-height: normal;
+    color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  
+/* 뒤로가기 버튼 스타일 */
+.back-button {
+  position: absolute;
+  top: 200px;
+  left: 5px;
+  width: 60px;    /* 버튼 크기 지정 */
+  height: 60px;   /* 버튼 크기 지정 */
+  background-color: white; /* 버튼 배경색 */
+  border: none;
+  border-radius: 10%; /* 버튼을 원형으로 만듦 */
+  display: flex;       /* Flexbox로 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* 호버 시 버튼 배경색 변경 */
+.back-button:hover {
+  background-color: #D9FD81;
+}
+
+/* SVG 아이콘 크기와 색상 */
+.back-button svg {
+  width: 50px;    /* 아이콘 너비 */
+  height: 50px;   /* 아이콘 높이 */
+  fill: #6b6b6b;  /* 아이콘 색상 */
+  z-index: 6;
+}

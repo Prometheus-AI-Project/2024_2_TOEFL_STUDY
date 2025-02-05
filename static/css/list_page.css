@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'All Round Gothic Semi';
+  src: url('../fonts/Fontspring-DEMO-allroundgothic-semi.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'All Round Gothic Lig';
+  src: url('../fonts/Fontspring-DEMO-allroundgothic-ligoblique.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    background-color: #FCFFF5;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard', sans-serif;
+   }
+   
+   /*레벨텍스트===========================================================================================*/
+   .level-text {
+    position: absolute;
+    top: 100px; /* 상자 바깥쪽에 살짝 배치 */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #D9FD81;
+    padding: 5px 20px;
+    font-size: 40px;
+    border: 1px solid #000;
+    width: 500px; /* 너비를 늘려 가로 확장 시 공간 확보 */
+    height: 69px;
+    display: flex;
+    align-items: center;  /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    text-align: center;
+    font-style: italic;
+    cursor: pointer; /* 클릭 가능함을 표시 */
+    z-index: 10; /* 다른 요소보다 위에 표시 */
+  }
+  
+  /* -----------------------------------------------------
+   * 문제 리스트 기본 스타일 (ul)
+   * ----------------------------------------------------- */
+   #titleList {
+    position: absolute;
+    font-weight: normal;
+    top: 250px;         
+    left: 200px;        
+    right: 200px;       
+    bottom: 130px;      
+    overflow-y: auto;
+    overflow-x: visible;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* 각 항목 (li) */
+  #titleList li {
+    background-color: #ffffff;
+    border: 1px solid #000;
+    margin-bottom: 15px;
+    padding: 20px;
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  /* 호버 시 확대효과 */
+  #titleList li:hover {
+    transition: ease-in-out;
+    background-color: #F3FFE0;
+  }
+  
+  /* 제목, 설명 등에 대한 세부 스타일 (필요 시) */
+  #titleList li span.title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  #titleList li span.description {
+    font-size: 0.9em;
+    color: #666;
+  }
