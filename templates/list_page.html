@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TO:C</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/list_page.css') }}">
+</head>
+<body>
+
+  <button class="back-button" onclick="history.back()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+      <g data-name="12-Arrow Left">
+        <path d="M50 0H14a14 14 0 0 0-14 14v36a14 14 0 0 0 14 14h36a14 14 0 0 0 14-14V14a14 14 0 0 0-14-14zm10 50a10 10 0 0 1-10 10H14A10 10 0 0 1 4 50V14A10 10 0 0 1 14 4h36a10 10 0 0 1 10 10z"/>
+        <path d="m27.42 19.42-2.84-2.84-14 14a2 2 0 0 0 0 2.82l14 14 2.82-2.82L16.82 34H54v-4H16.82z"/>
+      </g>
+    </svg>
+  </button>
+
+  <!--바탕 화면 선 추가-->
+  <div class="vertical-line left"></div>
+  <div class="vertical-line middle1"></div>
+  <div class="vertical-line right"></div>
+  <div class="horizontal-line top"></div>
+  <div class="horizontal-line middle2"></div>
+  <div class="horizontal-line bottom"></div>
+
+  <!-- 헤더 TO:C 텍스트 (모든 글자 개별 스타일링) -->
+  <div class="header-text">
+    <span class="letter-t">T</span>
+    <span class="letter-o">O</span>
+    <span class="letter-colon">:</span>
+    <span class="letter-c">C</span>
+  </div>
+  
+  <!-- 교차점 원 -->
+  <div class="circle-left"></div>
+  <div class="circle-right"></div>
+
+  <!-- 왼쪽 상단 강조 영역-->
+  <div class="highlighted-area">
+    <img src="https://c.animaapp.com/FfxiI2ht/img/star-3.svg" alt="Star Image" class="centered-image">
+  </div>
+
+  <!--상단 레벨박스 텍스트-->
+  <div class = "level-box">
+   <div class = "level-text">Level</div>
+  </div>
+  
+  <h1 id="pageTitle"></h1>
+  <ul id="titleList"></ul>
+
+  <!--푸터 텍스트-->
+  <div class="footer-text">Click. Check. Change</div> 
+
+  <!-- list_page.js 연결 -->
+  <script src="{{ url_for('static', filename='js/list_page.js') }}"></script>
+</body>
+</html>

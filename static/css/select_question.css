@@ -1,0 +1,413 @@
+@font-face {
+  font-family: 'All Round Gothic Semi';
+  src: url('../fonts/Fontspring-DEMO-allroundgothic-semi.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'All Round Gothic Lig';
+  src: url('../fonts/Fontspring-DEMO-allroundgothic-ligoblique.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+ background-color: #FCFFF5;
+ margin: 0;
+ padding: 0;
+}
+/*가로/세로선 스타일===========================================================================================*/
+/* 세로선 스타일 */
+.vertical-line {
+ position: fixed;
+ top: 0;
+ bottom: 0;
+ width: 1.2px;
+ background-color: #000;
+}
+.left {
+ left: 70px;
+}
+.right {
+ right: 70px;
+}
+/* 가로선 스타일 */
+.horizontal-line {
+ position: fixed;
+ height: 1.2px;
+ background-color: #000;
+ left: 0;
+ right: 0;
+}
+.top {
+ top: 100px;
+}
+.bottom {
+ bottom: 100px;
+}
+.middle2 {
+ top: 180px;
+}
+
+/*레벨텍스트===========================================================================================*/
+.level-text {
+ position: absolute;
+ top: 100px; /* 상자 바깥쪽에 살짝 배치 */
+ right: -51px;
+ transform: translateX(-50%);
+ background: black;
+ color: white;
+ font-style: italic;
+ padding: 5px 20px;
+ font-size: 35px;
+ font-weight: bold;
+ border: 1px solid #000;
+ width: 200px;
+ height: 69px;
+ display: flex;
+ align-items: center;  /* 수직 중앙 정렬 */
+ justify-content: center; /* 수평 중앙 정렬 */
+ text-align: center;
+}
+
+/*하단 click, check, change 문구 설정===========================================================================================*/
+.footer-text {
+  position: fixed;
+  font-size: 141px;
+  left: -44px;
+  bottom: -39px;
+  text-align: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.60);
+  font-family: 'All Round Gothic Semi', sans-serif;  /* 폰트 적용 */
+  font-style: normal;
+  font-weight: 650;
+  line-height: normal;
+  color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/*강조 영역===========================================================================================*/
+.highlighted-area {
+  position: fixed; 
+  top: 100px;       
+  left: 0;              
+  width: 70px;             
+  height: calc(180px - 100px); 
+  background-color: #E8E8E8;  
+  z-index: -1;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+.centered-image {
+  width: 60px;  
+  height: auto;   
+}
+
+/* 박스 컨테이너 설정 ==============================================================================================*/
+.box-container {
+ position: fixed;
+ left: 70px;
+ right: 70px;
+ top: 180px;
+ bottom: 100px;
+ display: flex;
+ flex-direction: row;
+}
+
+/* 글씨 크기 조정 및 스타일 */
+.passage-box, .question-box {
+ flex: 1;
+ border: 1px solid #000;
+ padding: 20px;
+ box-sizing: border-box;
+ overflow-y: auto; /* 스크롤 가능 */
+ font-size: 22px; /* 글씨 크기 증가 */
+ line-height: 1.8; /* 줄 간격 조정 */
+}
+
+/* 강조된 텍스트 스타일 (굵게 및 밑줄) */
+.important {
+ font-weight: bold;
+ text-decoration: underline;
+}
+
+.underline-highlight {
+ font-weight: bold;
+ color: rgb(58, 167, 255);
+ text-decoration: underline;
+}
+
+/*문제 설명 =========================================================================*/
+/* 문제 박스 스타일 */
+.question-container {
+ padding: 20px;
+ font-size: 22px;
+ line-height: 1.8;
+}
+
+/* 선택지 스타일 */
+.choice-container {
+ display: flex;
+ align-items: center;
+ padding: 20px;
+ margin-bottom: 15px;
+ border: 1px solid #ddd;
+ border-radius: 5px;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
+}
+
+.choice-container:hover {
+ background-color: #f7f7f7;
+}
+
+.choice-container.selected {
+ background-color: #f0f0f0;
+}
+
+/* 선택지 라벨 스타일 */
+.choice-circle {
+ width: 40px;
+ height: 40px;
+ border: 2px solid #000;
+ border-radius: 50%;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ font-weight: bold;
+ font-size: 20px;
+ margin-right: 15px;
+}
+
+.choice-circle.selected-circle {
+ background-color: #000;
+ color: #fff;
+}
+
+/* 선택지 텍스트 스타일 */
+.choice-text {
+ font-size: 22px;
+}
+
+/* 네비게이션 버튼 스타일 ===========================================================================================*/
+/* 전체 버튼 컨테이너 설정 */
+.nav-buttons {
+  display: flex;
+  justify-content: flex-end; /* 버튼을 오른쪽으로 몰아서 시작 */
+  position: absolute;
+  bottom: 130px;
+  right: 205px; /* grade 버튼을 고려한 오른쪽 여백 */
+  gap: 5px;
+}
+
+/* Grade 버튼 전용 컨테이너 */
+.grade-button-container {
+  position: absolute;
+  bottom: 130px;
+  right: 100px;  /* 오른쪽 하단 고정 위치 */
+}
+
+/* 기본 버튼 스타일 */
+.nav-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Prev, Next 버튼 스타일 */
+#prev-btn, #next-btn {
+  background-color: #333333;
+}
+
+#prev-btn:hover, #next-btn:hover {
+  background-color: #555;
+}
+#grade-btn {
+  background-color: black;
+  color: white;
+  width: 100px;
+  height: 50px;
+  font-size: 28px;
+  border-radius: 10%;
+  padding-left: 5px;
+}
+#grade-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Twin 버튼 스타일 */
+#twin-grade-btn, #twin-problem-btn {
+  display: none; /* 기본적으로 숨김 */
+  width: 120px;
+  height: 50px;
+  font-size: 22px;
+  border-radius: 10px;
+  background-color: #333333;
+  color: white;
+  font-weight: bold;
+}
+
+/* Twin 버튼 활성화 시 */
+.nav-buttons.twin-active #twin-grade-btn,
+.nav-buttons.twin-active #twin-problem-btn {
+  display: inline-block;
+}
+
+/* 로딩 창 ======================================================= */
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* 반투명 검정 배경 */
+  display: flex;                    /* Flexbox로 중앙 정렬 */
+  align-items: center;              /* 수직 중앙 정렬 */
+  justify-content: center;          /* 수평 중앙 정렬 */
+  flex-direction: column;           /* 세로 정렬 */
+  z-index: 9999;                    /* 최상단 레벨 */
+}
+
+/* 회전하는 원 스피너 */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 8px solid rgba(255, 255, 255, 0.3); /* 반투명 흰색 테두리 */
+  border-top: 8px solid #fff;                 /* 상단만 흰색 */
+  border-radius: 50%;                         /* 원 형태 */
+  animation: spin 2s linear infinite;  /* 속도 느리게: 2초 회전 */
+  margin-bottom: 20px;                        /* 텍스트와 간격 */
+}
+
+/* 로딩 텍스트 */
+.loading-text {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+  animation: fadeInOut 2s ease-in-out infinite; /* 부드러운 깜빡임 효과 */
+}
+
+/* 회전 애니메이션 */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 텍스트 깜빡임 애니메이션 */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* 뒤로가기 버튼 스타일 ==================================================*/
+.back-button {
+  position: absolute;
+  top: 200px;
+  left: 5px;
+  width: 60px;    /* 버튼 크기 지정 */
+  height: 60px;   /* 버튼 크기 지정 */
+  background-color: white; /* 버튼 배경색 */
+  border: none;
+  border-radius: 10%; /* 버튼을 원형으로 만듦 */
+  display: flex;       /* Flexbox로 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* 호버 시 버튼 배경색 변경 */
+.back-button:hover {
+  background-color: #D9FD81;
+}
+
+/* SVG 아이콘 크기와 색상 */
+.back-button svg {
+  width: 50px;    /* 아이콘 너비 */
+  height: 50px;   /* 아이콘 높이 */
+  fill: #6b6b6b;  /* 아이콘 색상 */
+  z-index: 6;
+}
+
+/*결과창 모달 ==========================================================*/
+/* 모달창 전체 배경 */
+#result-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+ }
+ /* 모달창 내용 영역 */
+ #result-modal-content {
+  background-color: #fefefe;
+  margin: 13% auto;  /* 화면 중앙에 배치 */
+  padding: 20px;
+  border: 1px solid #000000;
+  width: 100%;
+  max-width: 900px;
+  min-height: 300px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+ }
+ /* 모달 닫기 버튼 (우측 상단 X) */
+ #modal-close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: bold;
+ }
+ #result-modal-content h2 {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 70px;
+  margin-bottom: 80px;
+ }
+ #result-modal-content p {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 28px;
+  text-align: left;
+  margin-left: 70px;
+  margin-bottom: 40px;
+ }
+ .modal-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+ .modal-left {
+  flex: 1;
+  text-align: left;
+ }
+ .modal-right {
+  flex: 0 0 auto;
+  text-align: right;
+ }
+ .modal-right img {
+  position: relative;
+  top: 10px;
+  left: -15px;
+  width: 480px;
+  height: 480px; 
+ }

@@ -1,0 +1,338 @@
+/* 버튼 컨테이너 정렬 및 간격 =============================================================================*/
+.button_container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 40px;
+ position: absolute;
+ top: 50vh;  /* 브라우저 높이의 40% 위치에 버튼 고정 */
+ left: 50%;
+ transform: translate(-50%, -50%);  /* 가운데 정렬 */
+}
+
+/* 공통 카드 스타일 */
+.card {
+  font-family: 'Pretendard', sans-serif;
+  width: 420px;
+  height: 550px;
+  border: 2px solid #000;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  position: relative; /* absolute 위치 지정용 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  border-radius: 0px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 내용 간 간격 균일화 */
+}
+
+.card h2 {
+  color: #0D0D0C;
+  font-weight: 200;
+  font-size: 70px;
+  font-style: italic;
+}
+
+/* Basic, Intermediate, Advanced 카드의 p 태그 하단 고정 */
+.card:not(.how-to-use) p {
+  font-size: 28px;
+  font-style: italic;
+  color: #1C1C1A;
+  
+  position: absolute;  /* 카드 내부에서 절대 위치 설정 */
+  bottom: 100px;        /* 카드 하단에서 20px 위에 고정 */
+  left: 20px;          /* 왼쪽 여백 */
+  right: 20px;         /* 오른쪽 여백 */
+  margin: 0;
+  font-style: normal;
+  font-weight: 200;
+}
+
+/* 별 이미지 스타일 */
+.star-image {
+  width: 250px;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+  position: relative;
+  top: -150px;  /* 20px 위로 이동 */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Basic 카드 - 작은 별 */
+.star-small {
+  width: 220px;  /* 작은 별 */
+  height: auto;
+}
+
+/* Intermediate 카드 - 중간 별 */
+.star-medium {
+  width: 210px;  /* 중간 별 */
+  height: auto;
+  top: -170px;
+}
+
+/* Advanced 카드 - 큰 별 */
+.star-large {
+  width: 180px;  /* 중간 별 */
+  height: auto;
+  top: -160px;
+}
+
+/* 상단 Level 레이블 */
+.level-label {
+  top: -40px; 
+  left: 20px; 
+  font-size: 28px;
+  font-weight: 100;
+  color: #333;
+}
+
+/* 카드 스타일 수정 */
+.how-to-use {
+  width: 510px;
+  height: 630px;
+  padding: 0;               /* 내부 여백 제거 */
+  margin: 0;                /* 외부 여백 제거 */
+  background-color: #FCFFF5; /* 카드 배경색 */
+  border: none;
+  position: relative;       /* 위치 기준 설정 */
+  overflow: hidden;         /* 넘치는 부분 잘라내기 */
+  box-shadow: none;
+}
+
+/* 이미지 스타일 수정 */
+.how-to-use-image {
+  object-fit: cover;        /* 비율 유지하며 카드 전체 채우기 */
+  display: block;           /* 이미지 하단 공백 제거 */
+  margin: 0;                /* 여백 제거 */
+}
+
+.difficulty-label {
+  display: flex;
+  justify-content: space-between;  /* 요소를 균등하게 분포 */
+  width: 100%;  /* 카드의 너비와 일치 */
+  padding: 0;  /* 카드의 내부 패딩과 일치하도록 여백 설정 */
+  box-sizing: border-box;  /* 패딩을 너비에 포함 */
+  margin-top: 10px;
+}
+
+.difficulty-label span {
+  flex: 1;  /* 각 난이도 요소가 동일한 너비를 가짐 */
+  text-align: center;  /* 텍스트 가운데 정렬 */
+  margin: 5px 5px;  /* 요소 간 간격 조정 */
+  padding: 5px 10px;  /* 높이 균일화 */
+  border: 1px solid #000000;
+  background-color: #E8E8E8;
+  font-size: 28px;
+  font-style: italic;
+  color: #333;
+}
+
+.card-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;  /* 카드와 레벨 함께 움직이도록 설정 */
+}
+
+/* 카드 호버 시 카드와 레벨 레이블 동시 이동 */
+.card-wrapper:hover {
+  transform: translateY(-8px);  /* 카드와 레벨이 함께 위로 이동 */
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+  .button_container {
+    flex-direction: column;  /* 카드들을 세로로 배치 */
+    align-items: center;     /* 중앙 정렬 */
+  }
+  .card-wrapper {
+    margin-bottom: 20px;     /* 카드 간 간격 */
+  }
+}
+
+/*설명 모달창 ============================================================================*/
+/* 모달 기본 숨김 스타일 */
+.explanation-modal {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) scale(0.5);
+ width: 82%;
+ height: 85%;
+ background-color: #FCFFF5;
+ border: 1px solid #000;
+ box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+ opacity: 0;
+ visibility: hidden;
+ transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+ z-index: 5;
+}
+/* 모달 내용 스타일 */
+.explanation-content {
+ position: relative;
+ text-align: center;
+ padding: 50px;
+ font-size: 20px;
+ font-family: 'Pretendard', sans-serif;
+}
+.top2 {
+  top: 120px;
+}
+.bottom2 {
+  top: 200px;
+}
+.mid1 {
+  top: 120px;
+  height: 80px;
+  left: 850px;
+}
+.mid2 {
+  top: 120px;
+  height: 80px;
+  right: 850px;
+}
+.highlight-box {
+  position: absolute;
+  top: 120px; 
+  height: 80px;
+  left: 850px; 
+  right: 850px; 
+  background-color: #D9FD81;
+  z-index: -1;
+}
+.explanation-content h2 {
+  position: absolute;
+  top: 107px;
+  left: calc(50%);
+  transform: translateX(-50%);
+  font-size: 40px;
+  font-weight: 300;
+  font-style: italic;
+}
+.explanation-content p {
+  position: relative;
+  font-size: 30px;
+  font-weight: 200;
+  margin-top: 20px;
+  padding: 25px;
+  background-color: #FFFFFF;
+  border: 0.5px solid black;
+  width: 60%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  overflow: visible;
+
+}
+.explanation-content p::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100px;
+  transform: translateY(-50%);
+  width: 70px;
+  height: 70px;
+  background-image: url('https://c.animaapp.com/FfxiI2ht/img/star-3.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.explanation-content p::first-letter {
+  font-weight: 500;
+}
+.explanation-content h2 + p {
+  margin-top: 270px;
+}
+.explanation-content button {
+ margin-top: 20px;
+ padding: 10px 30px;
+ font-size: 18px;
+ background-color: #000;
+ color: #fff;
+ border: none;
+ cursor: pointer;
+ border-radius: 5px;
+}
+.explanation-modal.active {
+ transform: translate(-50%, -50%) scale(1);
+ opacity: 1;
+ visibility: visible;
+}
+.how-to-use.clicked {
+ transform: scale(1.1);
+ transition: transform 0.3s ease;
+}
+
+.explanation-content p {
+  position: relative;
+  font-size: 30px;
+  font-weight: 200;
+  margin-top: 20px;
+  padding: 25px;
+  background-color: #FFFFFF;
+  border: 0.5px solid black;
+  width: 60%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  overflow: visible;
+}
+.explanation-content p:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100px;
+  transform: translateY(-50%);
+  width: 70px;
+  height: 70px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 78 78" fill="none"><path d="M39 1.09408L51.7923 25.9915L51.8657 26.1343L52.0085 26.2077L76.9059 39L52.0085 51.7923L51.8657 51.8657L51.7923 52.0085L39 76.9059L26.2077 52.0085L26.1343 51.8657L25.9915 51.7923L1.09408 39L25.9915 26.2077L26.1343 26.1343L26.2077 25.9915L39 1.09408Z" fill="%23D9FD81" stroke="black"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.explanation-content p:nth-child(3)::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100px;
+  transform: translateY(-50%);
+  width: 70px;
+  height: 70px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="76" height="71" viewBox="0 0 76 71" fill="none"><path d="M38 0.739343L53.449 17.5675L53.5174 17.6421L53.6095 17.6841L74.388 27.1768L63.1575 47.0698L63.1077 47.158L63.0962 47.2586L60.489 69.9535L38.0992 65.42L38 65.3999L37.9008 65.42L15.511 69.9535L12.9038 47.2586L12.8922 47.158L12.8425 47.0698L1.61195 27.1768L22.3905 17.6841L22.4826 17.6421L22.551 17.5675L38 0.739343Z" fill="%23D9FD81" stroke="black"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.explanation-content p:nth-child(4)::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100px;
+  transform: translateY(-50%);
+  width: 70px;
+  height: 70px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 68 78" fill="none"><path d="M34 0.768231L47.0754 16.0207L47.19 16.1543L47.363 16.1867L67.1097 19.8841L60.4384 38.834L60.3799 39L60.4384 39.166L67.1097 58.1159L47.363 61.8133L47.19 61.8457L47.0754 61.9793L34 77.2318L20.9246 61.9793L20.81 61.8457L20.637 61.8133L0.890318 58.1159L7.56163 39.166L7.62008 39L7.56163 38.834L0.890318 19.8841L20.637 16.1867L20.81 16.1543L20.9246 16.0207L34 0.768231Z" fill="%23D9FD81" stroke="black"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.explanation-content p:nth-child(5)::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100px;
+  transform: translateY(-50%);
+  width: 70px;
+  height: 70px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 78 78" fill="none"><path d="M39 0.849252L48.8939 14.4328L49.0738 14.6798L49.3756 14.6323L65.9767 12.0233L63.3677 28.6244L63.3202 28.9262L63.5672 29.1061L77.1507 39L63.5672 48.8939L63.3202 49.0738L63.3677 49.3756L65.9767 65.9767L49.3756 63.3677L49.0738 63.3202L48.8939 63.5672L39 77.1507L29.1061 63.5672L28.9262 63.3202L28.6244 63.3677L12.0233 65.9767L14.6323 49.3756L14.6798 49.0738L14.4328 48.8939L0.849252 39L14.4328 29.1061L14.6798 28.9262L14.6323 28.6244L12.0233 12.0233L28.6244 14.6323L28.9262 14.6798L29.1061 14.4328L39 0.849252Z" fill="%23D9FD81" stroke="black"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}

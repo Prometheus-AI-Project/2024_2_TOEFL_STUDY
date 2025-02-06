@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>TO:C</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+  
+  <button class="back-button" onclick="history.back()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+      <g data-name="12-Arrow Left">
+        <path d="M50 0H14a14 14 0 0 0-14 14v36a14 14 0 0 0 14 14h36a14 14 0 0 0 14-14V14a14 14 0 0 0-14-14zm10 50a10 10 0 0 1-10 10H14A10 10 0 0 1 4 50V14A10 10 0 0 1 14 4h36a10 10 0 0 1 10 10z"/>
+        <path d="m27.42 19.42-2.84-2.84-14 14a2 2 0 0 0 0 2.82l14 14 2.82-2.82L16.82 34H54v-4H16.82z"/>
+      </g>
+    </svg>
+  </button>
+ 
+  <!--바탕 화면 선 추가-->
+  <div class="vertical-line left"></div>
+  <div class="vertical-line middle1"></div>
+  <div class="vertical-line right"></div>
+  <div class="horizontal-line top"></div>
+  <div class="horizontal-line middle2"></div>
+  <div class="horizontal-line bottom"></div>
+
+  <!-- 헤더 TO:C 텍스트 (모든 글자 개별 스타일링) -->
+  <div class="header-text">
+    <span class="letter-t">T</span>
+    <span class="letter-o">O</span>
+    <span class="letter-colon">:</span>
+    <span class="letter-c">C</span>
+  </div>
+  
+  <!-- 교차점 원 -->
+  <div class="circle-left"></div>
+  <div class="circle-right"></div>
+
+  <!-- 왼쪽 상단 강조 영역-->
+  <div class="highlighted-area">
+    <img src="https://c.animaapp.com/FfxiI2ht/img/star-3.svg" alt="Star Image" class="centered-image">
+  </div>
+
+  <!--상단 레벨박스 텍스트-->
+  <div class = "level-box">
+   <div class = "level-text">Level</div>
+  </div>
+
+  <!--중앙 카드(설명서, 난이도 카드)-->
+  <div class="button_container">
+
+    <!-- How to Use 카드 -->
+    <div class="card how-to-use card-wrapper" id="howToUseCard">
+      <img src="{{ url_for('static', filename='howToUse.png') }}" alt="How to Use" class="how-to-use-image">
+    </div>
+
+    <!-- Basic 카드 -->
+    <div class="card-wrapper">
+      <div class="level-label">Level 1</div> <!-- 상단 레벨 표시 -->
+      <div class="card" id="basicCard">
+        <h2>Basic</h2>
+        <img src="https://c.animaapp.com/FfxiI2ht/img/star-3.svg" alt="Basic Star" class="star-image star-small">
+        <p>기본 어휘와 문법을 평가해보세요!</p>
+      </div>
+      <div class="difficulty-label">
+        <span>Simple</span>
+        <span>Easy</span>
+        <span>Light</span>
+      </div> <!-- 하단 난이도 표시 -->
+    </div>
+    
+    <!-- Intermediate 카드 -->
+    <div class="card-wrapper">
+      <div class="level-label">Level 2</div>
+      <div class="card" id="intermediateCard">
+        <h2>Intermediate</h2>
+        <img src="https://c.animaapp.com/FfxiI2ht/img/star-15.svg" alt="Intermediate Star" class="star-image star-medium">
+        <p>중급 실력의 이해력을 평가해보세요!</p>
+      </div>
+      <div class="difficulty-label">
+        <span>Half</span>
+        <span>Center</span>
+        <span>Middle</span>
+      </div>
+    </div>
+    
+    <!-- Advanced 카드 -->
+    <div class="card-wrapper">
+      <div class="level-label">Level 3</div>
+      <div class="card" id="advancedCard">
+        <h2>Advanced</h2>
+        <img src="https://c.animaapp.com/FfxiI2ht/img/star-16.svg" alt="Advanced Star" class="star-image star-large">
+        <p>고급적 사고력을 평가해보세요!</p>
+      </div>
+      <div class="difficulty-label">
+        <span>Hard</span>
+        <span>Difficult</span>
+      </div>
+    </div>
+  </div>
+
+  <!--모달창 설명글-->
+  <div class="explanation-modal" id="explanationModal">
+   <div class="explanation-content">
+       <h2>How to Use</h2>
+       <p>1.  원하는 수준을 선택하세요!</p>
+       <p>2.  각 수준에 대한 문제들을 풀어보세요!</p>
+       <p>3.  TOC 시스템을 통해 목표를 달성하세요.</p>
+       <p>4.  홈페이지로 돌아가서 TOC을 체험해 보세요 !</p>
+       <button id="closeModal">닫기</button>
+       <div class = "horizontal-line top2"></div>
+       <div class = "horizontal-line bottom2"></div>
+       <div class="vertical-line mid1"></div>
+       <div class="vertical-line mid2"></div>
+       <div class="highlight-box"></div>
+   </div>
+  </div>
+  
+  <!--푸터 텍스트-->
+  <div class="footer-text">Click. Check. Change</div> 
+
+  <!--js 추가-->
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>TO:C</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/select_question.css') }}">
+</head>
+<body>
+
+  <button class="back-button" onclick="history.back()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+      <g data-name="12-Arrow Left">
+        <path d="M50 0H14a14 14 0 0 0-14 14v36a14 14 0 0 0 14 14h36a14 14 0 0 0 14-14V14a14 14 0 0 0-14-14zm10 50a10 10 0 0 1-10 10H14A10 10 0 0 1 4 50V14A10 10 0 0 1 14 4h36a10 10 0 0 1 10 10z"/>
+        <path d="m27.42 19.42-2.84-2.84-14 14a2 2 0 0 0 0 2.82l14 14 2.82-2.82L16.82 34H54v-4H16.82z"/>
+      </g>
+    </svg>
+  </button>
+
+  <!--바탕 화면 선 추가-->
+  <div class="vertical-line left"></div>
+  <div class="vertical-line right"></div>
+  <div class="horizontal-line top"></div>
+  <div class="horizontal-line middle2"></div>
+  <div class="horizontal-line bottom"></div>
+
+  <!-- 왼쪽 상단 강조 영역-->
+  <div class="highlighted-area">
+    <img src="https://c.animaapp.com/FfxiI2ht/img/star-3.svg" alt="Star Image" class="centered-image">
+  </div>
+
+  <!--상단 레벨박스 텍스트-->
+  <div class="level-box">
+   <div class="level-text">Practice</div>
+  </div>
+
+  <!-- 모델 로딩 화면 -->
+  <div id="loading-overlay" style="display: none;">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Processing through the Model...</div>
+  </div>
+
+  <!-- 지문 박스-->
+  <div class="box-container">
+   <!-- 왼쪽 Passage Box -->
+   <div class="passage-box">
+     <div id="passage-content" class="scrollable-content"></div>
+   </div>
+
+   <!-- 오른쪽 Question Box -->
+   <div class="question-box">
+    <div class="question-container">
+     <h2 id="question-title"></h2>
+     <p id="question-text"></p>
+     <div id="question-content"></div>
+    </div>
+   </div>
+   <div class="explanation"></div>
+ </div>
+
+ <div class="nav-buttons">
+   <button id="twin-grade-btn" class="nav-btn" style="display:none;">Twin Grade</button>
+   <button id="twin-problem-btn" class="nav-btn" style="display:none;" onclick="toggleTwinProblem()">Twin Problem</button>
+   <button id="prev-btn" class="nav-btn" onclick="prevQuestion()">&#10094;</button>
+   <button id="next-btn" class="nav-btn" onclick="nextQuestion()">&#10095;</button>
+ </div>
+ 
+ <div class="grade-button-container">
+   <button id="grade-btn" class="nav-btn" disabled onclick="gradeTest()">Grade</button>
+ </div>
+
+ <!-- 결과 모달창 -->
+ <div id="result-modal">
+  <div id="result-modal-content">
+    <span id="modal-close">&times;</span>
+    <div class="modal-body">
+      <div class="modal-left">
+        <h2>Test Results</h2>
+        <p id="result-correct">맞은 문제 번호: 1, 2, 3</p>
+        <p id="result-incorrect">틀린 문제 번호: 4, 5</p>
+        <p id="result-time">총 소요 시간: 1분 30초</p>
+      </div>
+      <div class="modal-right">
+        <img id="grade-image" src="{{ url_for('static', filename='C_grade.png') }}" alt="Grade Image">
+     </div>       
+    </div>
+  </div>
+ </div>
+
+  <!--푸터 텍스트-->
+  <div class="footer-text">Click, Check, Change</div> 
+
+  <script src="{{ url_for('static', filename='js/select_question.js') }}"></script>
+  
+</body>
+</html>
